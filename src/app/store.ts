@@ -2,7 +2,7 @@ import {Action} from 'redux';
 import {TodoActions} from './actions';
 
 export interface AppState {
-  items:string["name":"Jojo"];
+  items:string[];
 }
 
 export const INITIAL_STATE: AppState = {items:[]};
@@ -10,9 +10,10 @@ export const INITIAL_STATE: AppState = {items:[]};
 export function rootReducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case TodoActions.ADD:
-      var newstate = state.items;
-      debugger
-      newstate.push(action.data.data.value);
+      var newstate = state;
+      //todo remove
+      debugger;
+      newstate.items.push(action.data.data.value);
       return newstate;
   };
 

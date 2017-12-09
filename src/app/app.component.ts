@@ -11,8 +11,8 @@ import {Observable} from "rxjs/Observable";
     <button (click)="actions.add({data:edit,action:'ADD'})">add</button>
     <p>The list is:</p>
     <ul>
-      <li *ngFor="let item of $items">
-        {{item.name}}
+      <li *ngFor="let item of (items | async)">
+        {{item}}
       </li>
     </ul>
   `,
@@ -20,7 +20,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class AppComponent {
   title = 'app';
-  @select() readonly items$: Observable<number>;
+  @select() readonly items$: Observable<string[]>;
 
   constructor(
     ngRedux: NgRedux<AppState>,
