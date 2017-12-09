@@ -3,17 +3,17 @@ import { NgRedux } from '@angular-redux/store';
 import { AppState } from './store';
 
 @Injectable()
-export class CounterActions {
-  static INCREMENT = 'INCREMENT';
-  static DECREMENT = 'DECREMENT';
+export class TodoActions {
+  static ADD = 'ADD';
+  static REMOVE = 'REMOVE';
 
   constructor(private ngRedux: NgRedux<AppState>) {}
 
-  increment() {
-    this.ngRedux.dispatch({ type: CounterActions.INCREMENT });
+  add(data) {
+    this.ngRedux.dispatch({ type: TodoActions.ADD,data:data });
   }
 
-  decrement() {
-    this.ngRedux.dispatch({ type: CounterActions.DECREMENT });
+  remove() {
+    this.ngRedux.dispatch({ type: TodoActions.REMOVE });
   }
 }

@@ -1,18 +1,22 @@
-import { Action } from 'redux';
-import { CounterActions } from './actions';
+import {Action} from 'redux';
+import {TodoActions} from './actions';
 
 export interface AppState {
-  counter: number;
+  items:string["name":"Jojo"];
 }
 
-export const INITIAL_STATE: AppState = {
-  counter: 0,
-};
+export const INITIAL_STATE: AppState = {items:[]};
 
 export function rootReducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case CounterActions.INCREMENT: return { counter: state.counter + 1 };
-    case CounterActions.DECREMENT: return { counter: state.counter - 1 };
-    default: return state;
-  }
+    case TodoActions.ADD:
+      var newstate = state.items;
+      debugger
+      newstate.push(action.data.data.value);
+      return newstate;
+  };
+
+default:
+  return state;
+}
 }

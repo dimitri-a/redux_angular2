@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgReduxModule }  from '@angular-redux/store';
+import { NgReduxModule } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 import { AppComponent } from './app.component';
-import { CounterActions } from './actions';
+import { TodoActions} from './actions';
 
 
 @NgModule({
@@ -11,9 +11,9 @@ import { CounterActions } from './actions';
     AppComponent
   ],
   imports: [
-    BrowserModule,NgReduxModule
+    BrowserModule, NgReduxModule
   ],
-  providers: [CounterActions],
+  providers: [TodoActions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
