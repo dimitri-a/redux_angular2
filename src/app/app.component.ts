@@ -8,7 +8,7 @@ import {Observable} from "rxjs/Observable";
   selector: 'app-root',
   template: `    
     <input type="text" #edit />
-    <button (click)="actions.add({data:edit,action:'ADD'})">add</button>
+    <button (click)="actions.add({data:edit,action: 'ADD'})">add</button>
     <p>The list is:</p>
     <ul>
       <li *ngFor="let item of (items | async)">
@@ -20,7 +20,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class AppComponent {
   title = 'app';
-  @select() readonly items$: Observable<string[]>;
+  @select() readonly items: Observable<string[]>;
 
   constructor(
     ngRedux: NgRedux<AppState>,
@@ -32,7 +32,5 @@ export class AppComponent {
       INITIAL_STATE,
       null,
       devTools.isEnabled() ? [ devTools.enhancer() ] : []);
-
-    //console.log('AppState=',this.AppState);
   }
 }
